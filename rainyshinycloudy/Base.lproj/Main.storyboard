@@ -83,7 +83,7 @@
                                 <rect key="frame" x="0.0" y="300" width="375" height="367"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="sfi-sy-c0T">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="sfi-sy-c0T">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="sfi-sy-c0T" id="WQb-GP-RAA">
@@ -170,6 +170,7 @@
                         <outlet property="currentWeatherImage" destination="RiT-M5-SRH" id="WUw-ks-dZD"/>
                         <outlet property="currentWeatherTypeLabel" destination="2Fr-Jj-w8J" id="8xZ-hQ-THX"/>
                         <outlet property="locationLabel" destination="ENh-Mn-xg1" id="dBU-f2-mjz"/>
+                        <outlet property="tableView" destination="aAv-oc-OYi" id="T93-gJ-Sgy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
