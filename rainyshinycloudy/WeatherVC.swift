@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import CoreLocation
 import Alamofire
 
 
-class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate{
 
     // MARK: Outlets
     @IBOutlet weak var currentDateLabel: UILabel!
@@ -20,6 +21,11 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var currentWeatherTypeLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: Location
+    
+    let locationManager = CLLocationManager()
+    var currentLocation: CLLocation!
+    
     // MARK: Instantiations
     var currentWeather: CurrentWeather!
     var forecast: Forecast!
@@ -27,6 +33,12 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // MARK: locationManager setup
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startMonitoringSignificantLocationChanges()
         
         // MARK: Tableview setup
         tableView.delegate = self
