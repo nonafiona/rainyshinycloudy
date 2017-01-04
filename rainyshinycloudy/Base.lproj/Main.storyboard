@@ -84,7 +84,7 @@
                                 <rect key="frame" x="0.0" y="300" width="375" height="367"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="sfi-sy-c0T">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="sfi-sy-c0T" customClass="WeatherCell" customModule="rainyshinycloudy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="sfi-sy-c0T" id="WQb-GP-RAA">
@@ -151,6 +151,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="dayLabel" destination="tBl-ZJ-FBD" id="3o8-fG-aUz"/>
+                                            <outlet property="highTemp" destination="zod-r5-stb" id="VLk-wj-xFh"/>
+                                            <outlet property="lowTemp" destination="bOU-MX-L3G" id="ZWg-Ax-bOr"/>
+                                            <outlet property="weatherIcon" destination="jRp-eh-mQh" id="Rce-Fa-8XS"/>
+                                            <outlet property="weatherType" destination="o5u-42-HA2" id="Zrp-uz-fKw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
