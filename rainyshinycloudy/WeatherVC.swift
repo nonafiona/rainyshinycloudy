@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Alamofire
 
-class WeatherVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
 
-    
+class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
+
+    // MARK: Outlets
     @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var currentTempLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -18,19 +20,49 @@ class WeatherVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var currentWeatherTypeLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var currentWeather = CurrentWeather()
+    // MARK: Instantiations
+    var currentWeather: CurrentWeather!
+    var forecast: Forecast!
+    var forecasts = [Forecast]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // MARK: Tableview setup
         tableView.delegate = self
         tableView.dataSource = self
         
+        currentWeather = CurrentWeather()
+        
+        // MARK: Downloading data
         currentWeather.downloadWeatherDetails {
-            self.updateMainUI()
+            self.downloadForecastData {
+                self.updateMainUI()
+            }
         }
     }
     
+    // MARK: Forecast Data in Tableview
+    func downloadForecastData(completed: @escaping DownloadComplete) {
+        let forecastURL = URL(string: FORECAST_URL)!
+        Alamofire.request(forecastURL).responseJSON { response in
+            let result = response.result
+            
+            if let dict = result.value as? Dictionary<String,AnyObject> {
+                if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
+                    
+                    for obj in list {
+                        let forecast = Forecast(weatherDict: obj)
+                        self.forecasts.append(forecast)
+                        print(obj)
+                    }
+                }
+            }
+            completed()
+        }
+    }
+    
+    // MARK: Tableview Member Functions
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -45,6 +77,7 @@ class WeatherVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    // MARK: Update Main UI
     func updateMainUI() {
         currentDateLabel.text = currentWeather.date
         currentTempLabel.text = "\(currentWeather.currentTemp)"
