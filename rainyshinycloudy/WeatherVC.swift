@@ -48,9 +48,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         
         currentWeather = CurrentWeather()
         
-        
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -124,7 +121,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         } else {
             return WeatherCell()
         }
-        
         
     }
     
