@@ -48,13 +48,14 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         
         currentWeather = CurrentWeather()
         
-        // MARK: Downloading data
         
-        currentWeather.downloadWeatherDetails {
-            self.downloadForecastData {
-                self.updateMainUI()
-            }
-        }
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        locationAuthStatus()
     }
     
     // MARK: User Location Authorization Status
@@ -66,6 +67,13 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
             currentLocation = locationManager.location
             Location.sharedInstance.latitude = currentLocation.coordinate.latitude
             Location.sharedInstance.longitude = currentLocation.coordinate.longitude
+            
+            // MARK: Downloading data
+            currentWeather.downloadWeatherDetails {
+                self.downloadForecastData {
+                    self.updateMainUI()
+                }
+            }
             
         } else {
             locationManager.requestWhenInUseAuthorization()
