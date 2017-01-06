@@ -55,6 +55,10 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         locationAuthStatus()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: User Location Authorization Status
     
     func locationAuthStatus() {
