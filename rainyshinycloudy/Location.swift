@@ -13,6 +13,8 @@ class Location {
     static var sharedInstance = Location()
     private init() {}
     
+    // MARK: Properties
+    
     var latitude: Double!
     var longitude: Double!
     
