@@ -361,7 +361,7 @@
 				DEVELOPMENT_TEAM = D36AC3V592;
 				INFOPLIST_FILE = rainyshinycloudy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.rainyshinycloudy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.cloudypal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -376,7 +376,7 @@
 				DEVELOPMENT_TEAM = D36AC3V592;
 				INFOPLIST_FILE = rainyshinycloudy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.rainyshinycloudy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.cloudypal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
